@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Books',
+    'Book',
     'Users',
     'django_filters',
     'crispy_forms',
@@ -79,6 +79,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'BookBuyBetter.wsgi.application'
 
+# New user model
+AUTH_USER_MODEL = "Users.User"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases

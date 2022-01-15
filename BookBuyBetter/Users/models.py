@@ -8,9 +8,12 @@ from .managers import CustomUserManager
 
 class User(AbstractUser):
     username = models.CharField(max_length=50)
-    university = models.CharField(max_length=100, blank=False)
-    email = models.EmailField(_('email adress'), unique=True)
+    location = models.CharField(max_length=50)
+    email = models.EmailField(_('email address'), unique=True)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     current_classes = models.JSONField()
+    previous_classes = models.JSONField()
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
