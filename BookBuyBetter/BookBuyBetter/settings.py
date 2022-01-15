@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'Book',
     'Users',
     'ClassCodes',
-    'BookListings'
+    'BookListings',
     'django_filters',
     'crispy_forms',
     'crispy_bootstrap5',
