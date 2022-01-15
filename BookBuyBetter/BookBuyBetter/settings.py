@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Book',
     'Users',
+    'ClassCodes',
+    'BookListings'
     'django_filters',
     'crispy_forms',
     'crispy_bootstrap5',
