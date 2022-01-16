@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from .forms import NewListingForm
 from .models import BookListing
 from django.core.paginator import Paginator
 # Create your views here.
@@ -17,3 +19,16 @@ def all_listings(request):
     page = paginator.get_page(page_number)
     context = {'page':page}
     return render(request, 'BookListings/all_listings.html', context)
+
+def new_listing(request):
+    if request.method != "POST":
+        form = NewListingForm()
+        print(form)
+    else:
+        form = NewListingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('BookListings:all_listings')
+
+    context = {'form': form}
+    return render(request, 'BookListings/new_listing.html', context)
