@@ -11,3 +11,6 @@ class BookListing(models.Model):
     DateAdded = models.DateTimeField()
     Sold = models.BooleanField()
     BookImage = models.ImageField()
+
+    def __str__(self):
+        return str(self.Book) + ' ' + str(self.Seller)
