@@ -2,16 +2,53 @@
 {% load crispy_forms_tags %}       
 
 {% block content %}
-<h1 class="text-center p-3">Add Classes</h1>
-<div class="container p-3" style="width:35%;">   
-    <form method="POST" action="{% url 'users:addClasses' %}" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form|crispy }}
-        
-        <div class="container text-center">
-        <button name="submit" class="btn btn-success">Submit</button>
-        </div>
-    </form>
+<head>
+    <style>
+        .column {
+            float: left;
+            width: 40%;
+            margin-left: 5%;
+            margin-top: 1%;
 
-</div>
+        }
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="column">
+            <h1>User Classes</h1>
+
+            <ul>
+                {% for class in userClasses %}
+                <li>{{class}}</li>
+
+                {% endfor %}
+            </ul>
+            
+
+            </div>
+
+        <div class="column">
+            <h1>Add Classes</h1>
+            <div>   
+                <form method="POST" action="{% url 'users:addClasses' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    
+                    <div class="container text-center">
+                        <button name="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body
+
 {% endblock content %}
