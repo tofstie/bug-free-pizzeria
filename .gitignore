@@ -1,2 +1,7 @@
 env/
 *.pyc
+# Django #
+*.log
+*.pot
+
+__pycache__

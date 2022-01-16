@@ -21,7 +21,7 @@
                 </div>
                 {% if user.is_authenticated %}
                 <p class="text-black mt-3 px-4">{{user.username}}</p>
-                <button class='btn btn-sm green' type="submit"><a class="nav-link text-dark" href="{% url 'users:log_out' %}">Logout</a></button>
+                <button class='btn btn-sm green' type="submit"><a class="nav-link text-dark" href="{% url 'users:log_out' %}"><Strong>Logout</Strong></a></button>
                 {% else %}
                 <button class='btn btn-sm green' type="submit"><a class="nav-link text-dark" href="{% url 'users:login' %}">Login</a></button>
                 {% endif %}
