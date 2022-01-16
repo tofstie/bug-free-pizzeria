@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}       
 
 {% block content %}
-<h1 class="text-center p-3">Login</h1>
+<h1 class="text-center p-3">New Listing</h1>
 <div class="container p-3" style="width:35%;">   
     <form method="POST" action="{% url 'BookListings:new_listing' %}">
         {% csrf_token %}

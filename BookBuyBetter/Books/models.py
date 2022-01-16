@@ -11,4 +11,4 @@ class Book(models.Model):
     AveragePrice = models.FloatField()
 
     def __str__(self):
-        return self.Title
+        return self.Title + ', ' + self.Author

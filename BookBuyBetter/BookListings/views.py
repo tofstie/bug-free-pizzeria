@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .forms import NewListingForm
 from .models import BookListing
 from django.core.paginator import Paginator
+import datetime
 # Create your views here.
 def index(request):
     return render(request, 'BookListings/index.html')
@@ -22,9 +23,13 @@ def all_listings(request):
 
 def new_listing(request):
     if request.method != "POST":
-        form = NewListingForm()
-        print(form)
+        form = NewListingForm(initial={'Seller': request.user.email, 'DateAdded': datetime.datetime.today()})
     else:
+        post = request.POST.copy()
+        post['Seller'] = request.user
+        post['DateAdded'] = datetime.datetime.today()
+        request.POST = post
+
         form = NewListingForm(request.POST)
         if form.is_valid():
             form.save()
