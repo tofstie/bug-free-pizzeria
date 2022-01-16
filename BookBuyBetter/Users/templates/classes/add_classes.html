@@ -1,0 +1,17 @@
+{% extends "BookListings/base.html" %}
+{% load crispy_forms_tags %}       
+
+{% block content %}
+<h1 class="text-center p-3">Add Classes</h1>
+<div class="container p-3" style="width:35%;">   
+    <form method="POST" action="{% url 'users:addClasses' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        
+        <div class="container text-center">
+        <button name="submit" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+
+</div>
+{% endblock content %}
