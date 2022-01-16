@@ -6,7 +6,7 @@ from .forms import AddClassesForm, CustomUserCreationForm
 
 def log_out(request):
     logout(request)
-    return redirect('Book:index')
+    return redirect('BookListings:index')
 
 def register(request):
     if request.method != "POST":

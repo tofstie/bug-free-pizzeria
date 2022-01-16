@@ -17,13 +17,18 @@
                         <li class='nav-link'>
                             <a class='nav-link' href="{% url 'BookListings:all_listings' %}">All Listings</a>
                         </li>
+                        {% if user.is_authenticated %}
+                        <li class='nav-link'>
+                            <a class='nav-link' href="{% url 'BookListings:new_listing' %}">Add Listings</a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
                 {% if user.is_authenticated %}
                 <p class="text-black mt-3 px-4">{{user.username}}</p>
                 <button class='btn btn-sm green' type="submit"><a class="nav-link text-dark" href="{% url 'users:log_out' %}"><Strong>Logout</Strong></a></button>
                 {% else %}
-                <button class='btn btn-sm green' type="submit"><a class="nav-link text-dark" href="{% url 'users:login' %}">Login</a></button>
+                <button class='btn btn-sm green' type="submit"><a class="nav-link text-dark" href="{% url 'users:login' %}"><Strong>Login</Strong></a></button>
                 {% endif %}
             </div>
         </nav>
