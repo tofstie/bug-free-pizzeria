@@ -19,7 +19,7 @@
                 <td>{{listing.DateAdded}}</td>
             </tr>
             <script>
-                document.getElementById()
+                document.getElementById('{{listing.ListingID}}').addEventListener('click', location.href="{% url 'BookListings:listing' listing.ListingID");
             </script>
             {% endfor %}
         </tbody>
