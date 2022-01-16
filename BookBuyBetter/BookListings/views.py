@@ -23,14 +23,16 @@ def all_listings(request):
 
 def new_listing(request):
     if request.method != "POST":
-        form = NewListingForm(initial={'Seller': request.user.email, 'DateAdded': datetime.datetime.today()})
+        form = NewListingForm()
+
     else:
         post = request.POST.copy()
         post['Seller'] = request.user
-        post['DateAdded'] = datetime.datetime.today()
         request.POST = post
 
         form = NewListingForm(request.POST)
+        print('--------------------------')
+        print(form.errors)
         if form.is_valid():
             form.save()
             return redirect('BookListings:all_listings')

@@ -4,9 +4,10 @@
 {% block content %}
 <h1 class="text-center p-3">New Listing</h1>
 <div class="container p-3" style="width:35%;">   
-    <form method="POST" action="{% url 'BookListings:new_listing' %}">
+    <form method="POST" action="{% url 'BookListings:new_listing' %}" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form|crispy }}
+        {{ form.Book|as_crispy_field }}
+        {{ form.ListPrice|as_crispy_field }}
         <div class="container text-center">
         <button name="submit" class="btn btn-success">Submit</button>
         </div>

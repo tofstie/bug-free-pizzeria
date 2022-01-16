@@ -6,6 +6,6 @@ from django import forms
 class NewListingForm(ModelForm):
     class Meta:
         model = BookListing
-        fields = ['Book', 'ListPrice']
-        widgets = {'DateAdded': forms.SelectDateWidget}
-        
+        fields = ['Book', 'ListPrice', 'Seller']
+        labels = {'Book': 'Book', 'ListPrice': 'Price'}
+

@@ -10,7 +10,7 @@ class BookListing(models.Model):
     Book =  models.ForeignKey(Book, on_delete=models.CASCADE)
     ListPrice = models.FloatField()
     DateAdded = models.DateTimeField(default=now)
-    Sold = models.BooleanField()
+    Sold = models.BooleanField(default=False)
     BookImage = models.ImageField(null=True, blank = True)
 
     def __str__(self):
