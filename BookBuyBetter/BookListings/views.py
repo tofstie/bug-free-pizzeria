@@ -37,3 +37,8 @@ def new_listing(request):
 
     context = {'form': form}
     return render(request, 'BookListings/new_listing.html', context)
+
+def listing(request, listing_id):
+    listing_obj = BookListing.objects.get(ListingID=listing_id)
+    context = {'listing_obj':listing_obj}
+    return render(request, 'BookListings/listing.html', context)

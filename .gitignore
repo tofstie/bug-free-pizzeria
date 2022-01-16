@@ -3,5 +3,4 @@ env/
 # Django #
 *.log
 *.pot
-
 __pycache__

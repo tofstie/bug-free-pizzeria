@@ -12,11 +12,15 @@
         </thead>
         <tbody>
             {% for listing in page %}
-            <tr>
-                <td><a>{{listing.Book}}</a></td>
+            <tr id="{{listing.ListingID}}">
+                <!--<a href="{% url 'BookListings:listing' listing.ListingID %}" class="text-decoration-none">-->
+                <td>{{listing.Book}}</td>
                 <td>{{listing.ListPrice}}</td>
                 <td>{{listing.DateAdded}}</td>
             </tr>
+            <script>
+                document.getElementById()
+            </script>
             {% endfor %}
         </tbody>
     </table>
