@@ -9,9 +9,8 @@
         <p>Random text lorem ipsum or whatever</p>
         <ul>
             {% for listing in BookListing %}
-              <li>
-                <h2>{{ BookListing.Book.Title }}</h2>
-              </li>
+              <h2>{{ listing.Book.Title }}</h2>
+
             {% endfor %}
         </ul>
     </body>
