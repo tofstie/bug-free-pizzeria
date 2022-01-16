@@ -1,8 +1,10 @@
+from json import JSONDecoder
 from posixpath import split
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from .forms import AddClassesForm, CustomUserCreationForm
 from .models import User
+import json
 # Create your views here.
 
 
@@ -29,7 +31,7 @@ def addClasses(request):
         form = AddClassesForm()
         classList = request.user.current_classes
         if classList != None:
-            classList = classList.split(',')
+            classList = classList.keys
         
     else:
         form = AddClassesForm(request.POST)

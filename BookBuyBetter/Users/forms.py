@@ -10,7 +10,7 @@ class CustomUserCreationForm(UserCreationForm):
 
 class AddClassesForm(forms.Form):
     classes = []
-    for e in ClassCode.objects.all().distinct():
+    for e in ClassCode.objects.all():
         classes.append((e.ClassName, e.ClassName))
 
     Class= forms.ChoiceField( 
