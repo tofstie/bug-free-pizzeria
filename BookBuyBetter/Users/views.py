@@ -11,11 +11,12 @@ def log_out(request):
 def register(request):
     if request.method != "POST":
         form = CustomUserCreationForm()
+        print(form)
     else:
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('Users:login')
+            return redirect('users:login')
 
     context = {'form': form}
     return render(request, 'registration/register.html', context)
