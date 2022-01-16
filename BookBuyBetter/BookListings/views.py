@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-
+from .filters import ListingFilter
 from .forms import NewListingForm
 from .models import BookListing
 from django.core.paginator import Paginator
 import datetime
+
 # Create your views here.
 def index(request):
     return render(request, 'BookListings/index.html')
@@ -14,11 +15,22 @@ def bookListingView(request):
     return render(request, 'BookListings/bookListingView.html', context)
 
 def all_listings(request):
-    all_listings = BookListing.objects.filter(Sold=False).order_by('DateAdded')
+    sorting_option = request.GET['sort_by']
+    if sorting_option == 'Highest Price':
+        sorting = '-ListPrice'
+    elif sorting_option == 'Lowest Price':
+        sorting = 'ListPrice'
+    else:
+        sorting = "-DateAdded"
+    all_listings = BookListing.objects.filter(Sold=False).order_by(sorting)
+    
+    my_Filter = ListingFilter(request.GET, queryset=all_listings)
+    all_listings = my_Filter.qs
     paginator = Paginator(all_listings, 20)
     page_number = request.GET.get('page')
     page = paginator.get_page(page_number)
-    context = {'page':page}
+    
+    context = {'page':page, 'my_Filter': my_Filter}
     return render(request, 'BookListings/all_listings.html', context)
 
 def new_listing(request):
