@@ -1,5 +1,25 @@
 {% extends "BookListings/base.html" %}
 
 {% block content %}
-
+<div class='container text-center'>
+    <div class="col-sm-4">
+        <table class='table text-center table-borderd'>
+            <thead>
+                <tr>
+                    <th colspan='2' scope='col'>Listing Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Contact Information</td>
+                    <td>{{ listing_obj.Seller }}</td>
+                
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-12">
+        <img class="card-img-right img-thumbnail" src="{{ listing_obj.BookImage.url }}"width=300px height=200px style="max-height:200px" alt="connect">
+    </div>
+</div>
 {% endblock content %}
