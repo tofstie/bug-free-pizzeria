@@ -8,6 +8,8 @@
         {% csrf_token %}
         {{ form.Book|as_crispy_field }}
         {{ form.ListPrice|as_crispy_field }}
+        {{ form.BookImage|as_crispy_field }}
+        
         <div class="container text-center">
         <button name="submit" class="btn btn-success">Submit</button>
         </div>

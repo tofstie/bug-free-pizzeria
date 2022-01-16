@@ -30,9 +30,8 @@ def new_listing(request):
         post['Seller'] = request.user
         request.POST = post
 
-        form = NewListingForm(request.POST)
-        print('--------------------------')
-        print(form.errors)
+        form = NewListingForm(request.POST, request.FILES)
+
         if form.is_valid():
             form.save()
             return redirect('BookListings:all_listings')
