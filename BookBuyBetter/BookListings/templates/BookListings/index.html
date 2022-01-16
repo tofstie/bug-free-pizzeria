@@ -2,24 +2,13 @@
 
 
 {% block content %}
-<html>
-    <head>
-        <title>BookListing</title>
-    </head>
-
-    <body>
-        <p>Random text lorem ipsum or whatever</p>
-        <ul>
-            {% for listing in BookListing %}
-              <h2>{{ listing.Book.Title }}</h2>
-
-            {% endfor %}
-        </ul>
-    </body>
-
-
-
-
-</html>
-
+<div class='container jumbotron jumbotron-fluid'>
+    <h1 class="display-3">Book Buy Better</h1>
+    <p class="lead">Sell books online</p>
+    <hr class='my-3'>
+    <p>Register below or go the navigation bar to start!</p>
+    {% if user.is_authenticated %}
+    {% else %}
+    <a class="btn btn-success btn-lg" href = "{% url 'users:register' %}">Register</a>
+    {%endif%}
 {% endblock content %}
