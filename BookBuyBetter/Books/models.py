@@ -9,3 +9,6 @@ class Book(models.Model):
     Edition = models.IntegerField()
     OriginalPrice = models.FloatField()
     AveragePrice = models.FloatField()
+
+    def __str__(self):
+        return self.Title
